@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docker Overview</title>
+</head><body>Esempio per spiegare l'utilizzo di Docker:<br/>
+<br/>
+<br/>
+Immagina di creare un APP usando queste diverse components.<br/>
+<img src="1.png" width="600" height="420" /><br/>
+<br/>
+<br/>
+Questo peroò puo dare problemi di dipendenze, librerie, OS e perfino a livello Hardware.<br/>
+Altro problema è che alcuni servizi potrebbero necessitare di versioni di library<br/>
+che altri servizi si riferiscono ma a versioni differenti!<br/>
+<br/>
+In pratica: tutto lo stesso macello spiegato su Kubernetes che usa i Container!<br/>
+<img src="1 3.png" width="600" height="431" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Ed ecco qua che arriva Docker a salvarci la pelle: basta che tutti abbiano Docker!<br/>
+<img src="1 2.png" width="600" height="466" /><br/>
+<br/>
+<br/>
+<br/>
+I Container shareno semplicemente dei processi, rete e mounts propri:<br/>
+Inoltre fanno share dello stesso OS Kernel!<br/>
+<img src="1 5.png" width="600" height="337" /><br/>
+<br/>
+<br/>
+<br/>
+Ad esempio:<br/>
+Ubuntu sotto? Sopra dei container con tutti i Kernel Linux!<br/>
+NB: Se Runni un OS Kernel Windows, per creare un Linux Container creerà una Linux VM<br/>
+sulla quale appoggiarsi!<br/>
+<img src="1 4.png" width="600" height="394" /><br/>
+<br/>
+<br/>
+<br/>
+Ecco le differenze tra Docker e le VM:<br/>
+<img src="1 6.png" width="600" height="384" /><br/>
+<br/>
+<br/>
+Spesse volte, VM e Containers sono usati assieme:<br/>
+<img src="1 7.png" width="600" height="373" /><br/>
+<br/>
+<br/>
+<br/>
+<img src="1 8.png" width="600" height="300" /><br/>
+<br/>
+<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+<img src="2.png" /><br/>
+<br/>
+</body></html>
