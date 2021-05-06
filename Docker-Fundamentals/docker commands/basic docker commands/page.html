@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Basic Docker Commands</title>
+</head><body>Comandi base:<br/>
+<br/>
+<br/>
+<b>docker run:</b><br/>
+Usato per runnare i container, a partire di un immagine,<br/>
+Di base suppone che l'immagine sia su Docker Hub ma è possibile<br/>
+che l'immagine sia presa da altre fonti.<br/>
+Una volta scaricata un immagine, sarà possibile riusarla per altri containers<br/>
+senza la necessità di riscaricare la stessa immagine più volte.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<b>docker ps:</b><br/>
+Lista tutti i container presenti e delle informazioni di base a riguardo.<br/>
+Docker genera in modo automatico degli ID e dei Names per i container.<br/>
+Con l'opzione "-a" mostra anche i container che hanno dato errori o sono in exit.<br/>
+<img src="1 2.png" width="600" height="197" /><br/>
+<br/>
+<br/>
+<b>docker stop [ContainerName or ContainerID]:</b><br/>
+Possiamo usare il comando precedente su un container per stopparlo.<br/>
+Possiamo passargli o il nome del container oppure l'ID del container.<br/>
+NB: Questo comando ferma il container ma non lo cancella dalla memoria!<br/>
+<img src="1 3.png" width="600" height="187" /><br/>
+<br/>
+<br/>
+<b>docker rm [ContainerName or ContainerID]:<br/>
+</b>Con questo comando, possiamo rimuovere completamente un container dalla memoria.<br/>
+<img src="1 4.png" width="600" height="112" /><br/>
+<br/>
+<br/>
+<b>docker images:</b><br/>
+Lista tutte le images scaricate e presenti sulla macchina.<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b>docker rmi [image]:</b><br/>
+Rimuove un immagine dalla macchina.<br/>
+<b>NB: Devi prima fermare e rimuovere tutti i container che hanno quell'immagine, prima di rimuovere l'immagine!</b><br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<b>docker pull [image]:</b><br/>
+Se vogliamo semplicemente scaricare un immagine e non usarla immediatamente,<br/>
+possiamo usare il comando "pull" al posto del comando "run".<br/>
+Questo permetterà di scaricare l'immagine senza usarla per nessun container.<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Append a command:</b><br/>
+Possiamo aggiungere dei comandi, dopo la creazione di un Container da eseguire!<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+<br/>
+docker exec [container] [command]:<br/>
+Con in comando "exec" possiamo eseguire un comando sul container scelto!<br/>
+<img src="1 10.png" /><hr/><hr/><br/>
+<br/>
+Che succede se proviamo a farci runnare un OS sopra?<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+Notiamo che subito esce!<br/>
+I Container sono usati per applicativi e processi: appena finiscono il loro scopo,<br/>
+vengono distrutti.<br/>
+Se gli applicativi interni al container crashano, il container fa exit.<br/>
+<br/>
+Per questo motivo, se provi ad usare un app Ubuntu come image di un container,<br/>
+non è utile: puoi usarla per altri motivi ma non per runnare il container stesso.<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+<b>docker -d and attach:</b><br/>
+Se proviamo a runnare alcune applicazioni, queste ci tengono<br/>
+lo schermo in hanging.<br/>
+Possiamo evitare questa cosa usando l'opzione "run -d" per far si<br/>
+che venga mantenuto il Container in modalità Detached in background.<br/>
+<br/>
+Possiamo poi successivamente fate Attach al Container<br/>
+usando il comando "attach" e l'ID (o parte iniziale dell'ID) del container da fare Attach.<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+Se vogliamo assegnare un nome:<br/>
+DOPO RUN --name namescelto<br/>
+<img src="1 12.png" /></body></html>
