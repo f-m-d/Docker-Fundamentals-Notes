@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docker Compose</title>
+</head><body>Possiamo rendere il tutto più facile:<br/>
+Basta usare i file YAML e creiamo un oggetto in YAML.<br/>
+Poi possiamo chiamare il file e fare "up" per far partire tutta la stack.<br/>
+Questo ne aumenta la manutenzione in senso positivo!<br/>
+<b>NB: Questo vale solo per i Container per quel Docker Host!</b><br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Ecco l'applicazione di esempio:<br/>
+<img src="1.png" width="600" height="324" /><br/>
+<br/>
+<br/>
+<br/>
+Ora possiamo runnare le app ed usare l'opzione "--link " per collegare il Container runnato<br/>
+con altri container già esistenti!<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+Possiamo istruire nel costruire uno stack con "build" se abbiano le immagini o le cose<br/>
+che ci servono già in locale (o sono presenti solo in locale)<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+Possiamo vedere differenti versioni di Docker Compose:<br/>
+1) La prima dava problemi se volevi deployare in rete differenti dalla Bridged Network.<br/>
+Non vi è nessuna parte dove specificare la rete.<br/>
+Inoltre, se vi sono dipendenze non sono specificabili<br/>
+(E.G. non puoi specificare che aspetti prima il DB e poi puoi eseguire la Web App!)<br/>
+<br/>
+2) Semplicemente viene creato un tag chiamato "services" e va tutto quello che avresti messo<br/>
+nella versione 1 del file.<br/>
+Inoltre, deve essere specificato il tag "version".<br/>
+Nella versione precedente i Container venivano attaccati alla Bridged Network e connessi<br/>
+tramite i --link.<br/>
+Ora nella versione 2 crea una Dedicated Network per i Container.<br/>
+Inoltre è possibile comunicare usando i Service Names.<br/>
+Possiamo perfino aggiungere il "depends_on" per indicare da quale container dipende.<br/>
+<img src="1 5.png" width="600" height="373" /><br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Parliamo di Network in Docker.<br/>
+Ci basta aggiungere le reti che abbiamo e dire chi necessita di quale rete.<br/>
+<img src="1 6.png" /><br/>
+<br/>
+</body></html>

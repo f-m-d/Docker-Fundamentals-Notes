@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Docker Engine, Storage and Networking</string>
+  <key>nodeid</key><string>77e8044b-f0d4-4f71-85ec-4e7c1409966d</string>
+  <key>modified_time</key><integer>1620401101</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1620401101</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>7</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>folder.png</string>
+</dict>
+</node>

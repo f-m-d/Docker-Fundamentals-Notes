@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Command vs Entrypoint</title>
+</head><body>Supponiamo che vogliamo tenere viva un container di ubuntu:<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<br/>
+Quindi: chi dice quale processo sta runnando su un Container?<br/>
+Il Container finisce solo quando l'app o il servizio finisce.<br/>
+<br/>
+Guardiamo meglio cosa runnano i Dockerfile: runnano CMD ed un comando!<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Vediamo il Dockerfile di Ubuntu:<br/>
+runna bash!<br/>
+Bash ascolta per un input, ma se non trova il terminale quitta immediatamente.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Come cambiamo questa cosa?<br/>
+<br/>
+1) In modo temporaneo: Facciamo override del comando, specificandoglielo a run<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+2) Possiamo creare la nostra immagine a partire da quella online!<br/>
+NB: Nel caso vogliamo specificare CMD con sintassi JSON (E.G. CMD ["command", "param"],<br/>
+il primo argument deve essere sempre il comando da eseguire!<br/>
+<img src="1 5.png" width="600" height="375" /><br/>
+<hr/><hr/><br/>
+Ma cosa possiamo fare, nel caso vogliamo cambiare il numero di secondi?<br/>
+Fatto così, per ora, fa solo 5 secondi e basta.<br/>
+<br/>
+Possiamo fare 2 cose:<br/>
+1) Scrivere ogni volta "docker run container_name sleep 10"<br/>
+2) Usare un Entrypoint, in modo che ogni volta che il container è create necessita del numero di secondi che vogliamo.<br/>
+<img src="1 6.png" width="600" height="348" /><br/>
+<br/>
+<br/>
+E per settare un valore di Default per l'ENTRYPOINT?<br/>
+Basta aggiungere CMD dopo come argument!<br/>
+E' possibile fare override quando creiamo il Container.<br/>
+<br/>
+Se proprio dobbiamo cambiare l'Entrypoint a runtime,<br/>
+possiamo usare il parametro --entrypoint<br/>
+<img src="1 7.png" width="600" height="358" /></body></html>

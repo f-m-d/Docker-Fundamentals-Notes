@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Docker Compose</string>
+  <key>nodeid</key><string>88b693e8-5573-4626-9a3f-46e3258fcd5e</string>
+  <key>modified_time</key><integer>1620399680</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1620393298</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
