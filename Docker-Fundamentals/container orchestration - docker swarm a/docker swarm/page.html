@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docker Swarm</title>
+</head><body>E' complesso ma possiamo darci un occhiata:<br/>
+<br/>
+Semplicemente:<br/>
+Docker Swarm permette di gestire più nodi con Docker sopra.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<br/>
+Per iniziare:<br/>
+1) Dobbiamo avere degli hosts con Docker installato sopra.<br/>
+2) Elegiamo il nodo che gestirà gli altri nodi come Swarm Manager "docker swarm init"<br/>
+3) Facciamo joinare i Worker Nodes con il token<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Per eseguire un comando su un singolo nodo, possiamo fare "docker run" classico.<br/>
+Ma come possiamo farlo per gli altri nodi?<br/>
+<br/>
+Posso farlo a partire dallo "Swarm Manager" tramite il 3 comando.<br/>
+Ma posso specificare anche reti e porte!<br/>
+<img src="screenshot 3.png" /></body></html>

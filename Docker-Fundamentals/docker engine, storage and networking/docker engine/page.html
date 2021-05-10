@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docker Engine</title>
+</head><body>https://docs.docker.com/config/containers/resource_constraints/<br/>
+<br/>
+<br/>
+Generalmente, Docker Engine è riferito all'host sul quale gira Docker.<br/>
+Su un Docker Engine vengono installare 3 cose:<br/>
+- Docker CLI: CLI per usare e gestire Docker<br/>
+- REST API: Sono delle API che i programmi possono usare per interagire col Docker Daemon<br/>
+- Docker Daemon: Per far girare il servizio Docker. Gestisce container, volumi, network ed images <br/>
+<br/>
+NB: La Docker CLI può essere anche su un host diverso!<br/>
+Per questo possiamo usare l'opzione -H per specificare l'host e la porta del Docker Engine.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Quindi: Come funziona la Containerizzazione in Docker?<br/>
+Docker utilizza dei <b>namespace</b>&nbsp;per isolare i <b>workspace</b>.<br/>
+Questo permette di creare Isolation tra i container.<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+<b>Vediamone una: Process ID Namespace.</b><br/>
+I Sistemi Linux generalmente iniziano con un processo dal PID 1.<br/>
+Il PID:1 è il processo che avvia tutti gli altri processi.<br/>
+<br/>
+Quello che sappiamo è questo:<br/>
+<b>I processi che runnano su un Container in verità runnano sull'Host dove si trovano.</b><br/>
+Per questo possiamo usare PID come 1 ma solo nel Child System (Container).<br/>
+<b>In questo caso i namespace ci possono essere utili.</b><br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+<br/>
+Sappiamo inoltre che i Container fanno share delle risorse dell'Host, come CPU e Memoria.<br/>
+Di base, non vi è nessun limite alle risorse che possono essere usare dai Container.<br/>
+<b>Docker usa i cgroups per limitare l'utilizzo di risorse usate ad ogni container.<br/>
+POSSIBILE ATTACCO DOS LIMITANDO LE RISORSE?<br/>
+<br/>
+</b><b>NB: quel 0.5 indica che non può prendere più del 50% delle risorse CPU dell'host!</b><br/>
+<img src="screenshot 4.png" /></body></html>

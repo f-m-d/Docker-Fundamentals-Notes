@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Windows</title>
+</head><body>Prima vecchia opzione:<br/>
+Docker toolbox creava una VM Linux e ci faceva girare Docker.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<br/>
+<br/>
+Nuova opzione più recente:<br/>
+Sfruttare Microsoft Hyper-V al posto di VirtualBox.<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+NB: Tutte queste opzioni, alla fine, basano Docker su un sistema Linux!<br/>
+Per cambiare su Windows Container, bisogna eseguire l'opzione in altro a destra per switchare i container.<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Windows ha creato 2 modi di containerizzare:<br/>
+1) Modo normale, con Kernel e Containers che shareno il Kernel<br/>
+2) Hyper-V Isolation, dove ogni Container ha una iperottimizzata VM per se stesso.<br/>
+<br/>
+Le immagini di base per Windows sono:<br/>
+1) Windows Server Core,<br/>
+2) Nano Server: E' un opzione headless per il deployment, dove runna una frazione in ambito di size del sistema operativo.<br/>
+Il suo equivalente Linux: <b>Alpine-Linux</b>.<br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+<br/>
+Ricorda: VirtualBox ed Hyper-V non possono coesistere sulla stessa macchina.<br/>
+Per più specifiche, consulta la guida di Docker per migrare da uno all'altro.</body></html>

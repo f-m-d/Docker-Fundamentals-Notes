@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Docker Swarm</string>
+  <key>nodeid</key><string>d3aca072-7e50-41cb-8f7c-b05e14328055</string>
+  <key>modified_time</key><integer>1620657286</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1620656940</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>

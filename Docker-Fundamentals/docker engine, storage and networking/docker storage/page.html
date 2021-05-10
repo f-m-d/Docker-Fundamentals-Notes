@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docker Storage</title>
+</head><body>Parleremo di Docker Storage &amp; FileSystems.<br/>
+<br/>
+Nella cartella /var/lib/docker è la cartella di default dove Docker conserva tutti i suoi dati.<br/>
+Qui vengono dati relativi alle immagini, container, volumes etc.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<br/>
+Quindi: come viene salvato un immagine di Docker o un Container?<br/>
+Per farlo, dobbiamo parlare della <b>Docker Layered Architecture</b>.<br/>
+<br/>
+Nell'esempio che vediamo:<br/>
+Con un primo Dockerfile, creiamo un'immagine.<br/>
+Col secondo, essendo che i primi layer sono uguali a quelli del Dockerfile precedente,<br/>
+<b>non viene usata altra memoria addizionale: già esistono questi layer!<br/>
+</b><b>Quindi Docker riutilizza i layer già creati in precedenza.</b><br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Cerchiamo di capirne di più.<br/>
+Il Layer dell'Image è read-only.<br/>
+Per questo, Docker crea un layer RW dove scrivere tutte le impostazioni,<br/>
+ovvero nella cartella di Docker!<br/>
+<b>NB: Questo Container Layer esiste finché non esiste in Container!<br/>
+</b><b>Appena viene distrutto, questo layer coi suoi dati viene distrutto.</b><br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+<br/>
+Quindi: se vogliamo fare dei cambi all'image?<br/>
+Possiamo farli, ma in modo temporaneo (finché il Container vive)<br/>
+con COPY-ON-WRITE dall'Immagine RO nello spazio RW.<br/>
+Qui facciamo tutte le modifiche che vogliamo nel Container Layer.<br/>
+<img src="1.png" /><br/>
+<br/>
+&nbsp;<hr/><hr/><br/>
+<br/>
+E se vogliamo salvare i dati di un Container da qualche parte?<br/>
+Per questo possiamo creare ed attaccare al Container un <b>VOLUME</b>.<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Possiamo attaccare il Volume tramite l'opzione "-v":<br/>
+Mappiamo una cartella del Docker Host con una del Container,<br/>
+in modo che si salvi tutti i dati che il Container scive nella sua cartella!<br/>
+<img src="1 3.png" /><br/>
+<br/>
+Questo attaccherà il VOLUME al Container e salverà i dati lì.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+E che succede se il VOLUME non esiste?<br/>
+Lo creerà uno nuovo, col nome scelto.<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<br/>
+E che succede se vogliamo il VOLUME in una cartella differente da quella di default?<br/>
+Possiamo dargli l'intera path al volume che vogliamo montare:<br/>
+Questo viene detto "<b>Bind Mounting</b>", ovvero montare la cartella da una path che decidiamo noi.<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+Per trovate tutti i VOLUME, basta listare la Volume folder di Docker.<br/>
+L'operazione di montare i Volume si chiama <b>"Volume Mounting" o </b>"<b>Bind Mounting",<br/>
+</b><b>a seconda della path sia in Volume o sia definita in modo diretto.<br/>
+<br/>
+</b><hr/><hr/><b></b><b><br/>
+<br/>
+Cosa permette tutta questa architettura su Docker?<br/>
+Gli "Storage Drivers".<br/>
+Ad esempio: Ubuntu di base usa UFS. Nel caso più generico sarebbe meglio usare Device Mapper.<br/>
+</b><img src="screenshot 4.png" /></body></html>
